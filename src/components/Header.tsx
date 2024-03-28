@@ -1,5 +1,18 @@
+import React from "react";
+import Link from 'next/link';
 
-
+interface HeaderProps {
+    handleSearch: () => Promise<any[]>;
+}
+export const Header: React.FC<HeaderProps> = ({ handleSearch }) => {
+    return (
+        <div>
+        <Link href="/">
+            <a className="home-click">Home</a>
+        </Link> 
+        </div>      
+    )
+}
 // export const Header = ({ handleSearch, calculateTotalQuantity }) => { 
 //     return (
 //         <div className="header-container">
