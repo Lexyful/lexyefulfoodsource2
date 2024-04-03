@@ -1,6 +1,6 @@
 import React, { useState, ChangeEvent } from 'react';
 import Link from 'next/link';
-import './SearchBar.css';
+
 
 interface SearchBarProps {
   handleSearch: (query: string) => void;

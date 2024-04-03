@@ -25,6 +25,7 @@ const App: React.FC = () => {
       }
       const data = await response.json();
       //this is where i'll call setSearchedResults with data
+        setSearchedResults([]);
     } catch(error) {
         console.error('failed to fetch: ', error)
     }
