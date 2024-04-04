@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Home } from '@/components/Home';
 import { Header } from '@/components/Header';
+import { Results } from '@/components/Results';
 
 interface SearchResult {
   id: number;
@@ -61,6 +62,7 @@ const App: React.FC = () => {
       <h1>Hi</h1>
       <Header handleSearch={handleSearch}  /> 
       <Home />
+      <Results />
     </div>
   );
 }
