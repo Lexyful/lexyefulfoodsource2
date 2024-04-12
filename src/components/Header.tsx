@@ -1,18 +1,23 @@
+import React from "react";
+import Link from 'next/link';
+import { SearchBar } from "./SearchBar";
 
-
-// export const Header = ({ handleSearch, calculateTotalQuantity }) => { 
-//     return (
-//         <div className="header-container">
-//             {/* <NavLink to="/"> */}
-//                 <button className="home-click">Home</button>
-//             {/* </NavLink> */}
-//             <h1>
-//                 {/* <Link to="/">Lexyeful Food Source</Link> */}
-//                 </h1>
-//             {/* <SearchBar handleSearch={handleSearch} />  */}
-//             {/* <NavLink to="/cart"> */}
-//                 <button className="cart-click">Cart <span>{calculateTotalQuantity || 0}</span></button>
-//             {/* </NavLink> */}
-//         </div>
-//     );
-// };
+interface HeaderProps {
+    handleSearch: (query: string) => Promise<any[]>;
+}
+export const Header: React.FC<HeaderProps> = ({ handleSearch }) => {
+    return (
+        <div className="header-container">
+            <Link href="/">
+                <div className="home-click">Home</div>
+            </Link>
+            <h1>
+                <Link href="/">Lexyeful Food Source</Link>
+            </h1>
+            <SearchBar handleSearch={handleSearch} />
+            <Link href="/">
+                <div className="cart-click">Cart</div>
+            </Link>
+        </div>
+    );
+};
