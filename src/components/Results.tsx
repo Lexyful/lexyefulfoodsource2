@@ -1,33 +1,33 @@
 import React from 'react';
 import { FoodItem } from './FoodItem';
-import { SearchResult } from './SearchResult';
 
-interface SearchResult {
+interface FoodItem {
   id: number;
   label: string;
   image: string;
+  // Other properties
 }
 
 interface ResultsProps {
-  searchedResults: SearchResult[];
-  addToCart: (item: SearchResult) => void;
+  searchedResults: FoodItem[];
+  handleItem: (item: FoodItem) => void; // Ensure handleItem is required
 }
 
-export const Results: React.FC<ResultsProps> = ({ searchedResults, addToCart }) => {
-  const noDupes = searchedResults.filter((item, index, self) =>
-    index === self.findIndex((t) => (
-      t.id === item.id
-    ))
-  );
-
+export const Results: React.FC<ResultsProps> = ({ searchedResults, handleItem }) => {
   return (
     <div>
-      {noDupes.length > 0 ? (
+      {searchedResults.length > 0 ? (
         <div className="results-container">
           <div className="food-grid">
             <div className="food-items">
-              {noDupes.map((item, index) => (
-                <FoodItem key={index} item={item} handleItem={addToCart} buttonDistinction={'Add to Cart'} />
+              {searchedResults.map((item, index) => (
+                <FoodItem
+                  key={item.id}
+                  item={item}
+                  buttonDistinction={'Add to Cart'}
+                  handleItem={handleItem} // Pass handleItem prop here
+                  index={index} // Pass index prop here
+                />
               ))}
             </div>
           </div>
