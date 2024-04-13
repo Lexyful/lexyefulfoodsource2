@@ -5,15 +5,15 @@ interface FoodItem {
   id: number;
   label: string;
   image: string;
-  // Other properties
+  quantity: number;
 }
 
 interface ResultsProps {
   searchedResults: FoodItem[];
-  handleItem: (item: FoodItem) => void; // Ensure handleItem is required
+  addToCart: (product: FoodItem) => void;
 }
 
-export const Results: React.FC<ResultsProps> = ({ searchedResults, handleItem }) => {
+export const Results: React.FC<ResultsProps> = ({ searchedResults, addToCart }) => {
   return (
     <div>
       {searchedResults.length > 0 ? (
@@ -25,8 +25,8 @@ export const Results: React.FC<ResultsProps> = ({ searchedResults, handleItem })
                   key={item.id}
                   item={item}
                   buttonDistinction={'Add to Cart'}
-                  handleItem={handleItem} // Pass handleItem prop here
-                  index={index} // Pass index prop here
+                  addToCart={addToCart}
+                  index={index} 
                 />
               ))}
             </div>
