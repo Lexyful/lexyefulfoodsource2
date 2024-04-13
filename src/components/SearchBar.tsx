@@ -1,6 +1,6 @@
+// SearchBar.tsx
 import React, { useState, ChangeEvent } from 'react';
 import Link from 'next/link';
-
 
 interface SearchBarProps {
   handleSearch: (query: string) => void;
@@ -28,9 +28,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({ handleSearch }) => {
           onChange={onChange}
           placeholder="Search food"
         />
-        <Link href="/results"> 
-          <button className="search-button" onClick={handleButtonClick}>Search</button>
-        </Link>
+        <button className="search-button" onClick={handleButtonClick}>Search</button>
       </div>
     </div>
   );
