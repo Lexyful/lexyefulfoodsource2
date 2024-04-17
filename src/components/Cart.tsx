@@ -1,16 +1,37 @@
-// import React from "react";
-// import { FoodItem } from "./FoodItem";
+import React from "react";
+import { FoodItem } from "./FoodItem";
 
-// interface FoodItem {
-//   id: number;
-//   label: string;
-//   image: string;
-//   quantity: number;
-// }
+interface FoodItem {
+  id: number;
+  label: string;
+  image: string;
+  quantity: number;
+}
 
-// interface CartProps {
-//   addToCart: (product: FoodItem) => void;
-// }
+// Define the interface for props expected by the Cart component
+interface CartProps {
+  selectedItems: FoodItem[];  // This should be an array of FoodItem objects
+}
+
+// Apply the CartProps interface to your component props
+export const Cart: React.FC<CartProps> = ({ selectedItems }) => {
+  return (
+    <div className="cart-container">
+      <h2>This is your Cart</h2>
+      <div className="cart-items">
+        {selectedItems.map((item, index) => (
+          <div key={item.id}>
+            <FoodItem key={index} index={index} item={item} buttonDistinction={'Remove'} addToCart={function (product: FoodItem): void {
+              throw new Error("Function not implemented.");
+            } } />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+
 
 // export const Cart = ({ selectedItems, deleteSelectedItem, addOneItem, removeOneItem, calculateTotalQuantity, checkOut }) => {
 //   return (

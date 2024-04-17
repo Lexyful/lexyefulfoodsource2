@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Home } from '@/components/Home';
 import { Header } from '@/components/Header';
 import { Results } from '@/components/Results';
+import { Cart } from '@/components/Cart';
 
 interface FoodItem {
   id: number;
@@ -65,6 +66,7 @@ const App: React.FC = () => {
       <Header handleSearch={fetchFoodData} />
       <Home />
       <Results searchedResults={searchedResults} addToCart={addToCart}/>
+      <Cart selectedItems={selectedItems} />
     </div>
   );
 };
