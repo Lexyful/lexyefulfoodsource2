@@ -9,17 +9,17 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({ handleSearch }) => {
     return (
         <div className="header-container">
-            <Link href="/" legacyBehavior>
-                <a><button className="home-click">Home</button></a>
+            <Link href="/" >
+                <button className="home-click">Home</button>
             </Link>
             <h1>
-                <Link href="/" legacyBehavior>
-                    <a>Lexyeful Food Source</a>
+                <Link href="/" >
+                    <div>Lexyeful Food Source</div>
                 </Link>
             </h1>
             <SearchBar handleSearch={handleSearch} />
-            <Link href="/cart" legacyBehavior>
-                <a><button className="cart-click">Cart</button></a>
+            <Link href="/cart" >
+                <button className="cart-click">Cart</button>
             </Link>
         </div>
     );
